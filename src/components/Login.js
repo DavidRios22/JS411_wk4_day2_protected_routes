@@ -1,32 +1,31 @@
-import React, { useState } from "react";
-import { useNavigate } from "react-router-dom";
-import { TextField, Button, Container } from "@mui/material";
+import React, { useState } from "react"
+import { useNavigate } from "react-router-dom"
+import { TextField, Button, Container } from "@mui/material"
 
 const Login = () => {
-  const navigate = useNavigate();
+  const navigate = useNavigate()
 
   const [state, setState] = useState({
     username: "",
     password: "",
-  });
+  })
 
   const handleTextChange = (e) => {
-    const { name, value } = e.target;
+    const { name, value } = e.target
     setState((prevState) => {
       return {
         ...prevState,
         [name]: value,
-      };
-    });
-  };
+      }
+    })
+  }
 
   const login = (e) => {
-    e.preventDefault();
-    // set cookie here
-    // set loggedIn = true and max-age = 60*1000 (one minute)
+    e.preventDefault()
+    document.cookie = "loggedin=True;max-age=60*1000"
 
-    navigate("/");
-  };
+    navigate("/")
+  }
 
   return (
     <div className="App">
@@ -59,7 +58,7 @@ const Login = () => {
         </form>
       </Container>
     </div>
-  );
-};
+  )
+}
 
-export default Login;
+export default Login
